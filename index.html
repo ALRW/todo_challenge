@@ -15,12 +15,12 @@
       <form class="form-inline">
         <div class="form-group">
           <input type="text" placeholder="Enter a task" ng-model="listCtrl.taskItem">
-          <button class="btn btn-primary" id="Add">Add to List</button>
+          <button class="btn btn-primary" ng-click="listCtrl.addTask()" id="Add">Add to List</button>
         </div>
       </form>
     </div>
     <div class ="jumbotron">
-      <div ng-controller="ListController as list">
+      <div>
         <ul>
           <li>
             <p>To Do Item: {{list.taskList.item}}</p>
