@@ -15,23 +15,20 @@
       <form class="form-inline">
         <div class="form-group">
           <input type="text" placeholder="Enter a task">
-          <button class="btn btn-primary">Add to List</button>
+          <button class="btn btn-primary" id="Add">Add to List</button>
         </div>
       </form>
     </div>
     <div class ="jumbotron">
-      <div>
-      <ul class="nav nav-pills nav-justified">
-        <li class="active"><a href="#">Active</a>
-          <to-do-item></to-do-item>
-        </li>
-        <li><a href="#">Complete</a>
-          <to-do-item></to-do-item>
-        </li>
-        <li><a href="#">All</a>
-          <to-do-item></to-do-item>
-        </li>
-      </ul>
+      <div ng-controller="ListController as list">
+        <ul>
+          <li>
+            <p>To Do Item: {{list.taskList.item}}</p>
+          </li>
+          <li>
+            <p>Status: {{list.taskList.status}}</p>
+          </li>
+        </ul>
       </div>
       <br></br>
       <div>
