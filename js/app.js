@@ -1,12 +1,9 @@
 (function(){
   var toDoListPage = angular.module('ToDoList', ['ngResource']);
 
-  toDoListPage.controller("ListController", function(){
-    this.taskList = task;
-  });
+  toDoListPage.controller("ToDoListController", function(){
+    var self = this;
 
-  var task = {
-    item: "Pay Bills",
-    status: 'incomplete'
-  }
+    self.taskList = [];
+  });
 })();
