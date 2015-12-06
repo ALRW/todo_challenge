@@ -20,15 +20,10 @@
       </form>
     </div>
     <div class ="jumbotron">
-      <div>
-        <ul>
-          <li>
-            <p>To Do Item: {{list.taskList.item}}</p>
-          </li>
-          <li>
-            <p>Status: {{list.taskList.status}}</p>
-          </li>
-        </ul>
+      <div ng-repeat="item in listCtrl.taskList">
+        <h3>
+          {{item.task}}
+        </h3>
       </div>
       <br></br>
       <div>

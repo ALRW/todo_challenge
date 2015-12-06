@@ -8,9 +8,9 @@ describe('To Do List: ', function(){
   });
 
   it('can store a item in the to do list', function(){
-    element(by.model('toDoCtrl.toDoTerm')).sendKeys('Pay Bills');
+    element(by.model('listCtrl.taskItem')).sendKeys('Pay Bills');
     element(by.id('Add')).click();
-    expect(element(by.binding("list.item")).getText()).toEqual('Pay Bills')
+    expect(element(by.binding("item.task")).getText()).toEqual('Pay Bills')
   });
 
 });
