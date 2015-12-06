@@ -13,32 +13,40 @@ describe('ToDoListController: ', function(){
     expect(ctrl.taskList).toEqual([])
     expect(ctrl.taskItem).toBeUndefined();
   });
+  describe('Functions: ', function(){
 
-  describe('#addTask', function(){
-    it('adds a new task to the task list', function(){
+    beforeEach(function(){
       ctrl.taskItem = task;
       ctrl.addTask();
-      expect(ctrl.taskList[0].task).toEqual('Pay Bills')
     });
-  });
-
-  describe('#clearTasks', function(){
-    it('clears all tasks', function(){
-      ctrl.taskItem = task;
-      ctrl.addTask();
-      ctrl.clearTasks();
-      expect(ctrl.taskList).toEqual([]);
+    describe('#addTask', function(){
+      it('adds a new task to the task list', function(){
+        expect(ctrl.taskList[0].task).toEqual('Pay Bills')
+      });
     });
-  });
 
-  describe('#removeTask', function(){
-    it('removes a single task', function(){
-      ctrl.taskItem = task;
-      ctrl.addTask();
-      ctrl.taskItem = task1;
-      ctrl.addTask();
-      ctrl.removeTask(task1);
-      expect(ctrl.taskList).toEqual([{ task: 'Pay Bills', complete: false }]);
+    describe('#clearTasks', function(){
+      it('clears all tasks', function(){
+        ctrl.clearTasks();
+        expect(ctrl.taskList).toEqual([]);
+      });
+    });
+
+    describe('#removeTask', function(){
+      it('removes a single task', function(){
+        ctrl.taskItem = task1;
+        ctrl.addTask();
+        ctrl.removeTask(task1);
+        expect(ctrl.taskList).toEqual([{ task: 'Pay Bills', status: 'Incomplete' }]);
+      });
+    });
+
+    describe('#changeStatus', function(){
+      it('changes a tasks status', function(){
+        ctrl.changeStatus(task);
+        console.log(ctrl.taskList);
+        expect(ctrl.taskList[0].status).toEqual('Complete');
+      });
     });
   });
 });

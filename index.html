@@ -22,7 +22,8 @@
     <div class ="jumbotron">
       <div ng-repeat="item in listCtrl.taskList" class="results">
         <h3>
-          {{item.task}}
+          <button class="btn" ng-class="{'btn-danger':item.status==='Incomplete', 'btn-success':item.status==='Complete'}" id="status" ng-click="listCtrl.changeStatus(item.task)">{{item.status}}</button>
+          <span>{{item.task}}</span>
           <button class="btn btn-danger" id="Remove" ng-click="listCtrl.removeTask(item.task)">Remove</button>
         </h3>
       </div>

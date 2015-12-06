@@ -9,7 +9,7 @@
     self.addTask = function(){
       newItem = {
         task: self.taskItem,
-        complete: false
+        status: "Incomplete"
       };
       self.taskList.push(newItem);
     };
@@ -25,5 +25,17 @@
         }
       });
     };
+
+    self.changeStatus = function(task){
+      self.taskList.forEach(function(item){
+        if(item.task === task && item.status ==="Incomplete"){
+          item.status = "Complete";
+        }
+        else if(item.task === task && item.status === "Complete"){
+          item.status = "Incomplete";
+        }
+      });
+    };
+
   });
 })();
