@@ -17,8 +17,8 @@ describe('To Do List: ', function(){
   });
 
   it('can reset and clear all tasks', function(){
-    element(by.id('Clear')).click();
-    expect(element(by.css(".jumbotron")).getText()).toEqual('Reset list');
+    element(by.id('ClearAll')).click();
+    expect(element(by.css(".jumbotron")).getText()).not.toMatch(/Pay Bills/);
   });
 
   it('can remove a single item from the list', function(){
@@ -32,5 +32,23 @@ describe('To Do List: ', function(){
     expect(element(by.id('status')).getText()).toEqual('Incomplete');
     element(by.id('status')).click();
     expect(element(by.id('status')).getText()).toEqual('Complete');
+  });
+
+  it("can clear all completed tasks", function(){
+    element(by.model('listCtrl.taskItem')).sendKeys('Buy Car');
+    element(by.id('Add')).click();
+    element.all(by.id('status')).last().click();
+    element(by.id('Clear')).click();
+    expect(element.all(by.binding("item.task")).last().getText()).toEqual('Pay Bills')
+  });
+
+  it('tabs can be used to sort tasks', function(){
+    element(by.model('listCtrl.taskItem')).sendKeys('Buy Car');
+    element(by.id('Add')).click();
+    element.all(by.id('status')).last().click();
+    element(by.id('secondtab')).click();
+    expect(element(by.binding("item.task")).getText()).toEqual('Pay Bills')
+    element(by.id('thirdtab')).click();
+    expect(element(by.binding("item.task")).getText()).toEqual('Buy Car')
   });
 });

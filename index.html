@@ -11,26 +11,70 @@
 </head>
 <body ng-controller="ToDoListController as listCtrl">
   <div class="container">
-    <div class="page-header">
-      <form class="form-inline">
-        <div class="form-group">
-          <input type="text" placeholder="Enter a task" ng-model="listCtrl.taskItem">
-          <button class="btn btn-primary" ng-click="listCtrl.addTask()" id="Add">Add to List</button>
-        </div>
-      </form>
+    <div class="page-header text-center">
+      <h2>To Do List</h2>
     </div>
+
     <div class ="jumbotron">
-      <div ng-repeat="item in listCtrl.taskList" class="results">
-        <h3>
-          <button class="btn" ng-class="{'btn-danger':item.status==='Incomplete', 'btn-success':item.status==='Complete'}" id="status" ng-click="listCtrl.changeStatus(item.task)">{{item.status}}</button>
-          <span>{{item.task}}</span>
-          <button class="btn btn-danger" id="Remove" ng-click="listCtrl.removeTask(item.task)">Remove</button>
-        </h3>
+
+      <div class="text-center well">
+        <form class="form-inline">
+          <div class="form-group">
+            <input class="form-control" type="text" placeholder="Enter a task" ng-model="listCtrl.taskItem">
+            <button class="btn btn-primary" ng-click="listCtrl.addTask()" id="Add">Add to List</button>
+          </div>
+        </form>
       </div>
+
       <br></br>
-      <div>
-        <form>
-          <button class="btn btn-primary" id="Clear" ng-click="listCtrl.clearTasks()">Reset list</button>
+
+      <div ng-init="tab = 1">
+        <ul class="nav nav-pills nav-justified">
+          <li id="firsttab" ng-class="{active:tab === 1}"> <a href ng-click="tab = 1" >Tasks</a> </li>
+          <li id="secondtab" ng-class="{active:tab === 2}"> <a href ng-click="tab = 2" >Incomplete</a> </li>
+          <li id="thirdtab" ng-class="{active:tab === 3}"> <a href ng-click="tab = 3" >Complete</a> </li>
+        </ul>
+      </div>
+
+      <div class="panel well">
+        <h4>All Tasks</h4>
+        <div ng-repeat="item in listCtrl.taskList" class="well well-sm" ng-show="item.status === 'Incomplete'">
+          <h3>
+            <button class="btn" ng-class="{'btn-danger':item.status==='Incomplete', 'btn-success':item.status==='Complete'}" id="status" ng-click="listCtrl.changeStatus(item.task)">{{item.status}}</button>
+            <span>{{item.task}}</span>
+            <button class="btn btn-danger" id="Remove" ng-click="listCtrl.removeTask(item.task)">Remove</button>
+          </h3>
+        </div>
+      </div>
+
+      <div class="panel well" ng-show="tab === 2">
+        <h4>Incomplete Tasks</h4>
+        <div ng-repeat="item in listCtrl.taskList" class="well well-sm" ng-show="item.status === 'Incomplete'">
+          <h3>
+            <button class="btn" ng-class="{'btn-danger':item.status==='Incomplete', 'btn-success':item.status==='Complete'}" id="status" ng-click="listCtrl.changeStatus(item.task)">{{item.status}}</button>
+            <span>{{item.task}}</span>
+            <button class="btn btn-danger" id="Remove" ng-click="listCtrl.removeTask(item.task)">Remove</button>
+          </h3>
+        </div>
+      </div>
+
+      <div class="panel well" ng-show="tab === 3">
+        <h4>Complete Tasks</h4>
+        <div ng-repeat="item in listCtrl.taskList" class="well well-sm" ng-show="item.status === 'Complete'">
+          <h3>
+            <button class="btn" ng-class="{'btn-danger':item.status==='Incomplete', 'btn-success':item.status==='Complete'}" id="status" ng-click="listCtrl.changeStatus(item.task)">{{item.status}}</button>
+            <span>{{item.task}}</span>
+            <button class="btn btn-danger" id="Remove" ng-click="listCtrl.removeTask(item.task)">Remove</button>
+          </h3>
+        </div>
+      </div>
+
+      <br></br>
+
+      <div class="text-center">
+        <form class="form-inline">
+          <button class="btn btn-primary" id="ClearAll" ng-click="listCtrl.clearAllTasks()">Clear All Tasks</button>
+          <button class="btn btn-primary" id="Clear" ng-click="listCtrl.clearCompletedTasks()">Clear Completed Tasks</button>
         </form>
       </div>
     </div>

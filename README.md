@@ -10,14 +10,19 @@ Complete Features
 * Add a new incomplete task to the page.
 * Clear all tasks from the page.
 * Clear a single task from the page.
+* Mark a task complete.
+* Toggle task status
+* Clear all completed tasks at once.
+* Create Tabs to filter tasks by status.
 
 
 Future Features
 ---------------
 
-* Mark a task complete.
-* Create Tabs to filter tasks by status.
-* Clear all completed tasks at once.
+* Create function to perform show and hide of tasks and remove repetition.
+* breakout controller into separate file.
+* create custom directives.
+
 
 
 Technology Used

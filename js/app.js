@@ -14,7 +14,7 @@
       self.taskList.push(newItem);
     };
 
-    self.clearTasks = function(){
+    self.clearAllTasks = function(){
       self.taskList = [];
     };
 
@@ -33,6 +33,14 @@
         }
         else if(item.task === task && item.status === "Complete"){
           item.status = "Incomplete";
+        }
+      });
+    };
+
+    self.clearCompletedTasks = function(){
+      self.taskList = self.taskList.filter(function(item){
+        if (item.status === "Incomplete"){
+          return item
         }
       });
     };

@@ -27,7 +27,7 @@ describe('ToDoListController: ', function(){
 
     describe('#clearTasks', function(){
       it('clears all tasks', function(){
-        ctrl.clearTasks();
+        ctrl.clearAllTasks();
         expect(ctrl.taskList).toEqual([]);
       });
     });
@@ -44,8 +44,15 @@ describe('ToDoListController: ', function(){
     describe('#changeStatus', function(){
       it('changes a tasks status', function(){
         ctrl.changeStatus(task);
-        console.log(ctrl.taskList);
         expect(ctrl.taskList[0].status).toEqual('Complete');
+      });
+    });
+
+    describe('#clearCompletedTasks', function(){
+      it('Clears all tasks marked as complete', function(){
+        ctrl.changeStatus(task);
+        ctrl.clearCompletedTasks();
+        expect(ctrl.taskList).toEqual([]);
       });
     });
   });
