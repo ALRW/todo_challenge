@@ -3,6 +3,7 @@ describe('ToDoListController: ', function(){
 
   var ctrl
   var task = "Pay Bills"
+  var task1 = "Buy Car"
 
   beforeEach(inject(function($controller){
     ctrl = $controller('ToDoListController');
@@ -26,7 +27,18 @@ describe('ToDoListController: ', function(){
       ctrl.taskItem = task;
       ctrl.addTask();
       ctrl.clearTasks();
-      expect(ctrl.taskList).toEqual([]);  
+      expect(ctrl.taskList).toEqual([]);
+    });
+  });
+
+  describe('#removeTask', function(){
+    it('removes a single task', function(){
+      ctrl.taskItem = task;
+      ctrl.addTask();
+      ctrl.taskItem = task1;
+      ctrl.addTask();
+      ctrl.removeTask(task1);
+      expect(ctrl.taskList).toEqual([{ task: 'Pay Bills', complete: false }]);
     });
   });
 });

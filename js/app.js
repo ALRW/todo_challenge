@@ -12,11 +12,18 @@
         complete: false
       };
       self.taskList.push(newItem);
-      console.log(self.taskList);
     };
 
     self.clearTasks = function(){
       self.taskList = [];
+    };
+
+    self.removeTask = function(task){
+      self.taskList = self.taskList.filter(function(item){
+        if (item.task !== task){
+          return item
+        }
+      });
     };
   });
 })();

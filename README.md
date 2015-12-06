@@ -8,12 +8,12 @@ Complete Features
 -----------------
 
 * Add a new incomplete task to the page.
-
+* Clear all tasks from the page.
 
 
 Future Features
 ---------------
-* Clear all tasks from the page.
+
 * Clear a single task from the page.
 * Mark a task complete.
 

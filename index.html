@@ -23,6 +23,7 @@
       <div ng-repeat="item in listCtrl.taskList" class="results">
         <h3>
           {{item.task}}
+          <button class="btn btn-danger" id="Remove" ng-click="listCtrl.removeTask(item.task)">Remove</button>
         </h3>
       </div>
       <br></br>
