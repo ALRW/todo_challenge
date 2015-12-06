@@ -14,5 +14,9 @@
       self.taskList.push(newItem);
       console.log(self.taskList);
     };
+
+    self.clearTasks = function(){
+      self.taskList = [];
+    };
   });
 })();

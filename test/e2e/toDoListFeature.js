@@ -13,4 +13,11 @@ describe('To Do List: ', function(){
     expect(element(by.binding("item.task")).getText()).toEqual('Pay Bills')
   });
 
+  it('can reset and clear all tasks', function(){
+    element(by.model('listCtrl.taskItem')).sendKeys('Pay Bills');
+    element(by.id('Add')).click();
+    element(by.id('Clear')).click();
+    expect(element(by.css(".jumbotron")).getText()).toEqual('Reset list');
+  });
+
 });

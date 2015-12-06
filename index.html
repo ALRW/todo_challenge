@@ -20,7 +20,7 @@
       </form>
     </div>
     <div class ="jumbotron">
-      <div ng-repeat="item in listCtrl.taskList">
+      <div ng-repeat="item in listCtrl.taskList" class="results">
         <h3>
           {{item.task}}
         </h3>
@@ -28,7 +28,7 @@
       <br></br>
       <div>
         <form>
-          <button class="btn btn-primary">Reset list</button>
+          <button class="btn btn-primary" id="Clear" ng-click="listCtrl.clearTasks()">Reset list</button>
         </form>
       </div>
     </div>
