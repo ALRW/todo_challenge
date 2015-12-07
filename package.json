@@ -32,6 +32,7 @@
     "requirejs": "^2.1.22"
   },
   "dependencies": {
+    "bower": "^1.6.9",
     "npm-test": "0.0.1"
   }
 }
