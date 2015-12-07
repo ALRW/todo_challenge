@@ -3,7 +3,8 @@
 
   toDoListPage.controller("ToDoListController", function(){
     var self = this;
-    var newItem
+    var newItem;
+    var tab;
     self.taskList = [];
 
     self.addTask = function(){

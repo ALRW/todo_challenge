@@ -36,7 +36,7 @@
         </ul>
       </div>
 
-      <div class="panel well">
+      <div class="panel well" ng-show="tab === 1">
         <h4>All Tasks</h4>
         <div ng-repeat="item in listCtrl.taskList" class="well well-sm" ng-show="item.status === 'Incomplete'">
           <h3>

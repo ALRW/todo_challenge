@@ -19,7 +19,7 @@ Complete Features
 Future Features
 ---------------
 
-* Create function to perform show and hide of tasks and remove repetition.
+* Refactor to remove repetition of tab contents.
 * breakout controller into separate file.
 * create custom directives.
 
