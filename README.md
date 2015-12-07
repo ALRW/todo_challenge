@@ -1,6 +1,7 @@
 To Do List
 ----------
-----------
+
+Current Travis Build: ![Travis](https://travis-ci.org/ALRW/todo_challenge.svg)
 
 This is a simple "To Do" list application that allows you to keep track of tasks.
 
