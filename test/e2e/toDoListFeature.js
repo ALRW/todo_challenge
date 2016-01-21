@@ -21,20 +21,21 @@ describe('To Do List: ', function(){
     expect(element(by.css(".jumbotron")).getText()).not.toMatch(/Pay Bills/);
   });
 
-  it('can remove a single item from the list', function(){
+  xit('can remove a single item from the list', function(){
     element.all(by.model('listCtrl.taskItem')).first().sendKeys('Buy Car');
     element.all(by.id('Add')).first().click();
     element.all(by.id('Remove')).last().click();
     expect(element.all(by.binding("item.task")).first().getText()).toEqual('Pay Bills')
   });
 
-  it("can show whether a task is complete or not", function(){
+  xit("can show whether a task is complete or not", function(){
     expect(element.all(by.id('status')).first().getText()).toEqual('Incomplete');
     element.all(by.id('status')).first().click();
+    element(by.id('thirdtab')).click();
     expect(element.all(by.id('status')).first().getText()).toEqual('Complete');
   });
 
-  it("can clear all completed tasks", function(){
+  xit("can clear all completed tasks", function(){
     element(by.model('listCtrl.taskItem')).sendKeys('Buy Car');
     element(by.id('Add')).click();
     element.all(by.id('status')).last().click();
@@ -42,7 +43,7 @@ describe('To Do List: ', function(){
     expect(element.all(by.binding("item.task")).last().getText()).toEqual('Pay Bills')
   });
 
-  it('tabs can be used to sort tasks', function(){
+  xit('tabs can be used to sort tasks', function(){
     element(by.model('listCtrl.taskItem')).sendKeys('Buy Car');
     element(by.id('Add')).click();
     element.all(by.id('status')).last().click();
