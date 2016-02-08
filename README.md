@@ -3,7 +3,7 @@ To Do List
 
 Current Travis Build: ![Travis](https://travis-ci.org/ALRW/todo_challenge.svg)
 
-This is a simple "To Do" list application that allows you to keep track of tasks.
+This is a simple "To Do" list application that allows you to keep track of day to day tasks.
 
 Complete Features
 -----------------
@@ -15,18 +15,11 @@ Complete Features
 * Toggle task status
 * Clear all completed tasks at once.
 * Create Tabs to filter tasks by status.
-
-
-Future Features
----------------
-
 * Refactor to remove repetition of tab contents.
-* breakout controller into separate file.
-* create custom directives.
-
-
 
 Technology Used
 ---------------
 
-This App has been build using Javascript, Angular, HTML5 on the front end with a Ruby / Sinatra backend.
+This App has been build using Javascript, Angular, HTML5.
+
+Tested using Jasmine, Karma and Protractor.

@@ -23,16 +23,22 @@ describe('To Do List: ', function(){
 
   xit('can remove a single item from the list', function(){
     element.all(by.model('listCtrl.taskItem')).first().sendKeys('Buy Car');
-    element.all(by.id('Add')).first().click();
-    element.all(by.id('Remove')).last().click();
-    expect(element.all(by.binding("item.task")).first().getText()).toEqual('Pay Bills')
+    element.all(by.id('Add')).first().click().then(function(){
+      element(by.id('Remove')).click().then(function(){
+        expect(element.all(by.binding("item.task")).first().getText()).toEqual('Pay Bills');
+      })
+    })
+
   });
 
   xit("can show whether a task is complete or not", function(){
     expect(element.all(by.id('status')).first().getText()).toEqual('Incomplete');
-    element.all(by.id('status')).first().click();
-    element(by.id('thirdtab')).click();
-    expect(element.all(by.id('status')).first().getText()).toEqual('Complete');
+    element.all(by.id('status')).first().click().then(function(){
+      element(by.id('thirdtab')).click(). then(function(){
+        setTimeout(function(){
+        expect(element(by.id('status')).getText()).toEqual('Complete');}, 1000);
+      });
+    })
   });
 
   xit("can clear all completed tasks", function(){
